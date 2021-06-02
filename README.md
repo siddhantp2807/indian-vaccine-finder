@@ -1,6 +1,7 @@
 # indian-vaccine-finder
 
-Script that searches for and notifies you if vaccines are available in your district.
+Python Script that searches for and sends desktop notifications if vaccines are available in your district.
+
 
 First, install the `plyer` and the `requests` python packages.
 
