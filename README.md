@@ -1,7 +1,7 @@
 # indian-vaccine-finder
 
 Python Script that searches for and sends desktop notifications if vaccines are available in your district.
-
+Built with [API Setu CoWin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/)
 
 First, install the `plyer` and the `requests` python packages.
 
