@@ -29,12 +29,12 @@ print(f"Age: {args.age}, Dose: {args.dose}, Free: {args.free}, time: {args.time}
 
 
 try : 
-    json.dump(States().all, open(os.path.join(os.getcwd(), 'data\\districts.json'), "w"))
+    json.dump(States().all, open(os.path.join(os.getcwd(), 'data/districts.json'), "w"))
 except :
     print(f"{datetime.datetime.now().__str__()} : Connection Error")
     notification.notify(
         title=f"Connection lost",
-        message=f"An error occured. You sure you're connected to the Internet?",
+        message=f"An error occured whie writing state data to json.",
         app_icon = os.path.join(os.getcwd(), 'syringe.ico'),
         timeout=15
     )
@@ -53,7 +53,7 @@ while True :
                 print(f"{datetime.datetime.now().__str__()} : Connection Error")
                 notification.notify(
                     title=f"Connection lost at search",
-                    message=f"An error occured. You sure you're connected to the Internet? Maybe Quota exceeded?",
+                    message=f"An error occured while fetching data from API.",
                     app_icon = os.path.join(os.getcwd(), 'syringe.ico'),
                     timeout=15
                 )
@@ -68,8 +68,8 @@ while True :
                     for dataset in data :
 
                         notification.notify(
-                        title=f"{dataset['total_capacity']} {dataset['fee_type']} Vaccine Slot(s) Found!",
-                        message = f"At: {dataset['name']}\n{dataset['address']}\nPincode: {dataset['pincode']}\n",
+                        title=f"{dataset['total_capacity']} Vaccine Slot(s) at Pin:{dataset['pincode']}!",
+                        message = f"At: {dataset['name']}\n{dataset['address']}",
                         app_icon = os.path.join(os.getcwd(), 'syringe.ico'),
                         timeout = 15
                         )

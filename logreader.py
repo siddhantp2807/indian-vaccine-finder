@@ -3,7 +3,7 @@ import json, os
 class Log :
 
     def __init__(self) :
-        self.filename = 'data\\log.json'
+        self.filename = 'data/log.json'
         self.data = json.load(open(os.path.join(os.getcwd(), self.filename), 'r'))
 
     def last(self, n=1) :

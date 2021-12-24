@@ -6,9 +6,9 @@ import datetime
 class Searcher :
 
     def __init__(self, daysfromnow = 1) :
-        self.header = {'content-type' : 'application/json', 'user-agent' : 'my-comp'}
+        self.header = {'content-type' : 'application/json', 'user-agent' : 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0'}
         self.date = datetime.datetime.strftime((datetime.datetime.now() + datetime.timedelta(days=daysfromnow)).date(), '%d-%m-%Y')
-        self.states = json.load(open(os.path.join(os.getcwd(), 'data\\districts.json')))['states']
+        self.states = json.load(open(os.path.join(os.getcwd(), 'data/districts.json')))['states']
         
 
     def getStateId(self, statename) :
@@ -95,9 +95,9 @@ class Parser :
         data = self.parser
 
         if data != [] :
-            alData = json.load(open(os.path.join(os.getcwd(), "data\\log.json")))
+            alData = json.load(open(os.path.join(os.getcwd(), "data", "log.json")))
             alData.append({'time' : datetime.datetime.now().__str__(), 'data' : data })
-            json.dump(alData, open(os.path.join(os.getcwd(), "data\\log.json"), "w"))
+            json.dump(alData, open(os.path.join(os.getcwd(), "data", "log.json"), "w"))
         
         return True
 
